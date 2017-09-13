@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/index.ts"],"sourcesContent":["export class Test {\n    public foo: number;\n\n    constructor() {\n        this.foo = 1;\n    }\n}\n"],"names":[],"mappings":";;;;;;AAAA;IAGI;QACI,IAAI,CAAC,GAAG,GAAG,CAAC,CAAC;KAChB;IACL,WAAC;CAAA;;;;;;;;;;;;"}
