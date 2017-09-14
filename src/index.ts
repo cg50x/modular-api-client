@@ -1,7 +1,3 @@
-export class Test {
-    public foo: number;
+import { createAPIClient } from './api-client';
 
-    constructor() {
-        this.foo = 1;
-    }
-}
+export const client = createAPIClient();
