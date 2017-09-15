@@ -1,23 +1,24 @@
 import * as Promise from 'promise';
+
 // This class only pretends to make http calls. Instead it just prints to the console.
 
 export class HttpAdapter {
-  get(url: string): Promise<any> {
+  get(url: string) {
     console.log(`GET ${url}`);
-    return Promise.resolve(null);
+    return Promise.resolve(true);
   }
-  post(url: string, params: any): Promise<any> {
+  post(url: string, params: any) {
     console.log(`POST ${url}`);
     console.log(`  params: ${params}`);
-    return Promise.resolve(null);
+    return Promise.resolve(true);
   }
-  put(url: string, params: any): Promise<any> {
+  put(url: string, params: any) {
     console.log(`PUT ${url}`);
     console.log(`  params: ${params}`);
-    return Promise.resolve(null);
+    return Promise.resolve(true);
   }
-  delete(url: string): Promise<any> {
+  delete(url: string) {
     console.log(`DELETE ${url}`);
-    return Promise.resolve(null);
+    return Promise.resolve(true);
   }
 }
