@@ -26,7 +26,7 @@ export class UserAPIService extends BaseAPIService {
     return this.httpAdapter.put(`${this.baseUrl}/users/${userId}`, params);
   }
   public getUserFriends(userId: string) {
-    return this.httpAdapter.put(`${this.baseUrl}/users/${userId}/friends`);
+    return this.httpAdapter.get(`${this.baseUrl}/users/${userId}/friends`);
   }
   public deleteUserFriend(userId: string, friendId: string) {
     return this.httpAdapter.delete(`${this.baseUrl}/users/${userId}/friends/${friendId}`);
