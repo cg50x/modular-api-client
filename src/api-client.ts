@@ -41,7 +41,11 @@ export function addService(key: string, createServiceFn: Function): void {
             newService.client = currClient;
 
             // Attach the new service directly to the client object so that the service doesn't get created again.
-            currClient[key] = newService;
+            Object.defineProperty(currClient, key, {
+                get: function () {
+                    return newService;
+                }
+            });
 
             return newService;
         }
