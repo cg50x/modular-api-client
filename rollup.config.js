@@ -27,4 +27,16 @@ export default [{
 		typescript(),
 		uglify()
 	]
+}, {
+	input: 'src/tests/test-base.ts',
+	output: {
+		file: 'dist/test-base.js',
+		format: 'umd',
+		name: 'Test'
+	},
+	sourcemap: true,
+	plugins: [
+		sourcemaps(),
+		typescript()
+	]
 }];
