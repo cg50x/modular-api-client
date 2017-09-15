@@ -102,91 +102,6 @@ var BaseAPIService = /** @class */ (function () {
     return BaseAPIService;
 }());
 
-var CoreAPIService = /** @class */ (function (_super) {
-    __extends(CoreAPIService, _super);
-    function CoreAPIService() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Object.defineProperty(CoreAPIService.prototype, "apiVersion", {
-        get: function () {
-            return '1.0.0';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CoreAPIService.prototype, "baseUrl", {
-        get: function () {
-            return this.client.config.apiUrls.core;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CoreAPIService.prototype, "httpAdapter", {
-        get: function () {
-            return this.client.httpAdapter;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    CoreAPIService.prototype.getStatus = function () {
-        return this.httpAdapter.get(this.baseUrl + "/status");
-    };
-    CoreAPIService.prototype.login = function (credentials) {
-        return this.httpAdapter.post(this.baseUrl + "/login", credentials);
-    };
-    return CoreAPIService;
-}(BaseAPIService));
-
-var UserAPIService = /** @class */ (function (_super) {
-    __extends(UserAPIService, _super);
-    function UserAPIService() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Object.defineProperty(UserAPIService.prototype, "apiVersion", {
-        get: function () {
-            return '1.0.1';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(UserAPIService.prototype, "baseUrl", {
-        get: function () {
-            return this.client.config.apiUrls.user;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(UserAPIService.prototype, "httpAdapter", {
-        get: function () {
-            return this.client.httpAdapter;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    UserAPIService.prototype.getStatus = function () {
-        return this.httpAdapter.get(this.baseUrl + "/status");
-    };
-    UserAPIService.prototype.getUsers = function () {
-        return this.httpAdapter.get(this.baseUrl + "/users");
-    };
-    UserAPIService.prototype.getUser = function (userId) {
-        return this.httpAdapter.get(this.baseUrl + "/users/" + userId);
-    };
-    UserAPIService.prototype.putUser = function (userId, params) {
-        return this.httpAdapter.put(this.baseUrl + "/users/" + userId, params);
-    };
-    UserAPIService.prototype.getUserFriends = function (userId) {
-        return this.httpAdapter.get(this.baseUrl + "/users/" + userId + "/friends");
-    };
-    UserAPIService.prototype.deleteUserFriend = function (userId, friendId) {
-        return this.httpAdapter.delete(this.baseUrl + "/users/" + userId + "/friends/" + friendId);
-    };
-    UserAPIService.prototype.postUserFriend = function (userId, params) {
-        return this.httpAdapter.post(this.baseUrl + "/users/" + userId + "/friends", params);
-    };
-    return UserAPIService;
-}(BaseAPIService));
-
 var AdsAPIService = /** @class */ (function (_super) {
     __extends(AdsAPIService, _super);
     function AdsAPIService() {
@@ -240,16 +155,104 @@ var AdsAPIService = /** @class */ (function (_super) {
     return AdsAPIService;
 }(BaseAPIService));
 
-var client = createAPIClient();
-addService('core', function () {
-    return new CoreAPIService();
-});
 addService('ads', function () {
     return new AdsAPIService();
 });
+
+var CoreAPIService = /** @class */ (function (_super) {
+    __extends(CoreAPIService, _super);
+    function CoreAPIService() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(CoreAPIService.prototype, "apiVersion", {
+        get: function () {
+            return '1.0.0';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CoreAPIService.prototype, "baseUrl", {
+        get: function () {
+            return this.client.config.apiUrls.core;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CoreAPIService.prototype, "httpAdapter", {
+        get: function () {
+            return this.client.httpAdapter;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CoreAPIService.prototype.getStatus = function () {
+        return this.httpAdapter.get(this.baseUrl + "/status");
+    };
+    CoreAPIService.prototype.login = function (credentials) {
+        return this.httpAdapter.post(this.baseUrl + "/login", credentials);
+    };
+    return CoreAPIService;
+}(BaseAPIService));
+
+addService('core', function () {
+    return new CoreAPIService();
+});
+
+var UserAPIService = /** @class */ (function (_super) {
+    __extends(UserAPIService, _super);
+    function UserAPIService() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(UserAPIService.prototype, "apiVersion", {
+        get: function () {
+            return '1.0.1';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserAPIService.prototype, "baseUrl", {
+        get: function () {
+            return this.client.config.apiUrls.user;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserAPIService.prototype, "httpAdapter", {
+        get: function () {
+            return this.client.httpAdapter;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    UserAPIService.prototype.getStatus = function () {
+        return this.httpAdapter.get(this.baseUrl + "/status");
+    };
+    UserAPIService.prototype.getUsers = function () {
+        return this.httpAdapter.get(this.baseUrl + "/users");
+    };
+    UserAPIService.prototype.getUser = function (userId) {
+        return this.httpAdapter.get(this.baseUrl + "/users/" + userId);
+    };
+    UserAPIService.prototype.putUser = function (userId, params) {
+        return this.httpAdapter.put(this.baseUrl + "/users/" + userId, params);
+    };
+    UserAPIService.prototype.getUserFriends = function (userId) {
+        return this.httpAdapter.get(this.baseUrl + "/users/" + userId + "/friends");
+    };
+    UserAPIService.prototype.deleteUserFriend = function (userId, friendId) {
+        return this.httpAdapter.delete(this.baseUrl + "/users/" + userId + "/friends/" + friendId);
+    };
+    UserAPIService.prototype.postUserFriend = function (userId, params) {
+        return this.httpAdapter.post(this.baseUrl + "/users/" + userId + "/friends", params);
+    };
+    return UserAPIService;
+}(BaseAPIService));
+
 addService('user', function () {
     return new UserAPIService();
 });
+
+var client = createAPIClient();
 
 exports.client = client;
 
