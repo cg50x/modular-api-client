@@ -30,3 +30,20 @@ export class APIClient {
 export function createAPIClient() {
     return new APIClient();
 }
+
+export function addService(key: string, createServiceFn: Function): void {
+    const serviceInstance = createServiceFn();
+    Object.defineProperty(APIClient.prototype, key, {
+        get: function () {
+            const currClient = this;
+            // Create a new object from the service whose client prop points to the client
+            const newService = Object.create(serviceInstance);
+            newService.client = currClient;
+
+            // Attach the new service directly to the client object so that the service doesn't get created again.
+            currClient[key] = newService;
+
+            return newService;
+        }
+    });
+}
