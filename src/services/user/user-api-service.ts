@@ -1,4 +1,4 @@
-import { BaseAPIService } from './base-api-service';
+import { BaseAPIService } from '../../base-api-service';
 
 export class UserAPIService extends BaseAPIService {
 

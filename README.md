@@ -55,15 +55,15 @@ Import just the services or endpoints that you need.
 
 // Import just ads service
 import { client } from 'modular-api-client/base';
-import 'modular-api-client/add/services/ads';
+import 'modular-api-client/services/ads';
 
 client.ads.getStatus(); // works
 client.user.getStatus(); // breaks
 
 // Import ads service and the getAds
 import { client } from 'modular-api-client/base';
-import 'modular-api-client/add/services/ads/base';
-import 'modular-api-client/add/services/ads/endpoints/get-ads'
+import 'modular-api-client/services/ads/base';
+import 'modular-api-client/services/ads/endpoints/get-ads'
 
 client.ads.getAds();
 client.ads.postAd(); // breaks
@@ -77,7 +77,7 @@ const client2 = client.create(config2);
 client.ads.getAds(); // breaks
 client2.ads.getAds(); // breaks
 
-import 'modular-api-client/add/services/ads';
+import 'modular-api-client/services/ads';
 
 client2.ads.getAds(); // works
 client.ads.getAds(); // works
