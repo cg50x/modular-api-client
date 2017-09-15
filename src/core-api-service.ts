@@ -13,10 +13,10 @@ export class CoreAPIService extends BaseAPIService {
     return this.client.httpAdapter;
   }
 
-  public getStatus(): Promise<any> {
+  public getStatus() {
     return this.httpAdapter.get(`${this.baseUrl}/status`);
   }
-  public login(credentials): Promise<any> {
+  public login(credentials) {
     return this.httpAdapter.post(`${this.baseUrl}/login`, credentials);
   }
 }

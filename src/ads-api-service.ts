@@ -13,28 +13,28 @@ export class AdsAPIService extends BaseAPIService {
     return this.client.httpAdapter;
   }
 
-  public getStatus(): Promise<any> {
+  public getStatus() {
     return this.httpAdapter.get(`${this.baseUrl}/status`);
   }
-  public getAds(): Promise<any> {
+  public getAds() {
     return this.httpAdapter.get(`${this.baseUrl}/ads`);
   }
-  public getAd(adId: string): Promise<any> {
+  public getAd(adId: string) {
     return this.httpAdapter.get(`${this.baseUrl}/ads/${adId}`);
   }
-  public postAd(adId: string, params): Promise<any> {
+  public postAd(adId: string, params) {
     return this.httpAdapter.post(`${this.baseUrl}/ads/${adId}`, params);
   }
-  public putAd(adId: string, params): Promise<any> {
+  public putAd(adId: string, params) {
     return this.httpAdapter.put(`${this.baseUrl}/ads/${adId}`, params);
   }
-  public deleteAd(adId: string, params): Promise<any> {
+  public deleteAd(adId: string, params) {
     return this.httpAdapter.delete(`${this.baseUrl}/ads/${adId}`);
   }
-  public publishAd(adId: string): Promise<any> {
+  public publishAd(adId: string) {
     return this.httpAdapter.post(`${this.baseUrl}/ads/${adId}/publish`, null);
   }
-  public getAdViewers(adId: string): Promise<any> {
+  public getAdViewers(adId: string) {
     return this.httpAdapter.get(`${this.baseUrl}/ads/${adId}/viewers`);
   }
 }
