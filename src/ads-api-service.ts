@@ -1,4 +1,3 @@
-import * as Promise from 'promise';
 import { BaseAPIService } from './base-api-service';
 
 export class AdsAPIService extends BaseAPIService {

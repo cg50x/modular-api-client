@@ -1,5 +1,3 @@
-import * as Promise from 'promise';
-
 // This class only pretends to make http calls. Instead it just prints to the console.
 
 export class HttpAdapter {
